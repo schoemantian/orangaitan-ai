@@ -1,0 +1,101 @@
+/* Common styles */
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    justify-content: center;
+}
+
+.login-card {
+    padding: 32px 32px 0;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    max-height: 950px;
+    max-width: 450px;
+    flex-direction: column;
+}
+
+.login-card-content {
+    flex-grow: 2;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card-footer {
+    padding: 32px 0;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+button {
+    border-radius: 6px;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 10px 0;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+  }
+  
+
+  /********************************************************** Dark theme styles **********************************************************/
+.theme-dark {
+    background: #353740;
+    color: white; /* Text*/
+}
+
+.theme-dark button {
+    border: 1px solid #9a9a9a;
+    color: #9a9a9a;
+}
+
+.theme-dark button:hover {
+    background-color: #9a9a9a;
+    color: #202123;
+    border-color: #202123;
+}
+
+  
+
+  /********************************************************** Light theme styles **********************************************************/
+.theme-light {
+    background: #F6D8B6 /* Background Color */;
+    color: #3E1F1C; /* Text*/
+}
+
+.theme-light button {
+    background-color: #F6D8B6;
+    color: #3E1F1C;
+    border: 1px solid #3E1F1C;
+}
+
+.theme-light button:hover {
+    background-color: #3E1F1C;
+    color: #F6D8B6;
+    border-color: #3E1F1C;
+}

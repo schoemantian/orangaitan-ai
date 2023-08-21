@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to the Orangaitan App</h1>
+    <div id="signin-container">
+        <a href="{{ url_for('google.login') }}" id="signin-button">Sign in with Google</a>
+    </div>
+{% endblock %}

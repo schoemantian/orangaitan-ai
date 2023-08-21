@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<div id="sidebar">
+    <div class="logo-and-title">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/' + ('logo.png' if theme_preference == 'theme-dark' else 'logo.png')) }}" alt="Company Logo" />
+        </div>
+      </div>      
+    <a href="#" class="newChatButton"><i class="fas fa-plus"></i> New chat</a>
+    <div id="chat-history-container">
+      </div>      
+    <div class="user-button" onclick="toggleUserPopup()">
+        <img src="{{ user_image_url }}" alt="{{ user_name }}" class="user-image">
+        <span class="user-name">{{ user_name }}</span>
+    </div>
+    <div id="user-popup" class="user-popup">
+        <a href="#" class="user-popup-option">FAQ and Policies</a>
+        <a href="#" class="user-popup-option" onclick="openSettingsModal()">Settings</a>
+        <a href="#" onclick="logout()" class="user-popup-option">Log out</a>
+    </div>
+</div>
+<div id="settings-modal" class="settings-modal-hidden">
+    <div class="settings-modal-content">
+        <div class="settings-modal-header">
+            <h3>Settings</h3>
+            <span class="settings-modal-close" onclick="closeSettingsModal()">&times;</span>
+        </div>
+        <div class="settings-modal-body">
+            <div class="settings-modal-left">
+                <a href="#" onclick="showGeneralSettings()">General</a>
+                <a href="#" onclick="showDataControlsSettings()">Data Controls</a>
+            </div>
+            <div class="settings-modal-right">
+                <div id="general-settings">
+                    <div>
+                        <span>Theme:</span>
+                        <select id="theme-selection" onchange="toggleTheme(this.value)">
+                            <option value="System">System</option>
+                            <option value="Dark">Dark</option>
+                            <option value="Light">Light</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="data-controls-settings" class="settings-modal-hidden">
+                    <p><button onclick="exportData()">Export Data</button></p>
+                    <p>Chat History: <input type="checkbox" onclick="toggleChatHistory()"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="chat-container">
+    <div id="main-chat">
+        <div id="messages">
+            <!-- Messages will be displayed here -->
+        </div>
+        <form id="message-form" onsubmit="return sendMessage(event);">
+            <select id="response-type" name="response-type">
+                <option value="chat">Chat</option>
+                <option value="image">Image</option>
+            </select>
+            <textarea id="message-input" rows="1" placeholder="Type your message..."></textarea>
+            <button type="submit" id="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z"/></svg>
+            </button> 
+        </form>
+        <div id="footer">
+            <p>Orangaitan is powered by various AI models, please make sure you have read the <a href="{{ url_for('terms_of_use') }}" target="_blank">Terms of Use</a> | <a href="{{ url_for('releases') }}" target="_blank">Release Log</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

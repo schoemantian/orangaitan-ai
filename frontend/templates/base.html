@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
+    <link id="highlightjs-styles" rel="stylesheet" href="{% if theme_preference == 'theme-dark' %}https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark.min.css{% else %}https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github.min.css{% endif %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.8/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <title>Orangaitan</title>
+</head>
+<body class="{{ theme_preference }}">
+    <div id="wrapper">
+        {% block sidebar %}{% endblock %}
+        <div id="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="/static/js/message_handling.js"></script>
+    <script src="/static/js/chat_history.js"></script>
+    <script src="/static/js/ui_controls.js"></script>
+    <script src="/static/js/settings_modal.js"></script>
+    <script src="/static/js/logout.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
